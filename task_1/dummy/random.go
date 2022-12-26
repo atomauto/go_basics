@@ -1,5 +1,7 @@
 package dummy
 
+import "fmt"
+
 type Dummy struct {
 	users                  int
 	products               int
@@ -11,9 +13,8 @@ type Dummy struct {
 func New(users, products, carts, orders int, generateDataWithErrors bool) *Dummy {
 	return &Dummy{users, products, carts, orders, generateDataWithErrors}
 }
-func generate(d *Dummy) *Dummy {
+func Generate(d *Dummy) {
 	for i := 0; i < d.users; i++ {
-
+		fmt.Println(i)
 	}
-	return d
 }

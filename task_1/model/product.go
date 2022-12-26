@@ -22,3 +22,7 @@ type Product struct {
 
 	created time.Time
 }
+
+func New(name string, baseRetailPrice, minimumPrice float32, minimumQuantity uint16, multiplicity uint8, weight, volume float32) *Product {
+	return &Product{uuid.New(), name, baseRetailPrice, minimumPrice, minimumQuantity, multiplicity, weight, volume, time.Now()}
+}

@@ -19,3 +19,7 @@ type User struct {
 
 	created time.Time
 }
+
+func New(name, phone, email string) *User {
+	return &User{uuid.New(), name, phone, email, "", 0, 0, time.Now()}
+}
