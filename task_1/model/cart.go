@@ -22,6 +22,10 @@ type Cart struct {
 	created time.Time
 }
 
+func NewCart(User *User) *Cart {
+	return &Cart{uuid.New(), User, nil, nil, nil, nil, 0, 0, 0, time.Now()}
+}
+
 /*Checks when you add a product:
 - price with user discount >= Product.minimumPrice
 - quantity >= Product.minQuantity AND quantity%Product.multiplicity==0

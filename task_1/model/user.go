@@ -8,10 +8,11 @@ import (
 
 // TODO: we should replace discount with bonus systems with levels (adding some gamification would be nice)
 type User struct {
-	id    uuid.UUID
-	name  string
-	phone string
-	email string
+	id      uuid.UUID
+	name    string
+	phone   string
+	email   string
+	address string
 
 	comment       string
 	discount      int8
@@ -20,6 +21,6 @@ type User struct {
 	created time.Time
 }
 
-func New(name, phone, email string) *User {
-	return &User{uuid.New(), name, phone, email, "", 0, 0, time.Now()}
+func NewUser(name, phone, email, address, comment string) *User {
+	return &User{uuid.New(), name, phone, email, address, comment, 0, 0, time.Now()}
 }

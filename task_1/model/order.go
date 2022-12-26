@@ -31,3 +31,8 @@ type Order struct {
 	//6-in delivery,7-delivered,8-closed,-1-canceled,-2-unsuccesful delivery
 	created time.Time
 }
+
+// TODO: totalWeight and further params aren't handled now
+func NewOrder(User *User, Products *[]Product, quantity []uint16, prices []float32) *Order {
+	return &Order{uuid.New(), User, Products, quantity, prices, 0, 0, 0, 0, 0, "", 0, 0, time.Now()}
+}
