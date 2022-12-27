@@ -24,3 +24,11 @@ type User struct {
 func NewUser(name, phone, email, address, comment string) *User {
 	return &User{uuid.New(), name, phone, email, address, comment, 0, 0, time.Now()}
 }
+
+func (u *User) UpdateProduct(name, phone, email, address, comment string) {
+	u.name = name
+	u.phone = phone
+	u.email = email
+	u.address = address
+	u.comment = comment
+}

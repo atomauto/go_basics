@@ -32,7 +32,9 @@ type Order struct {
 	created time.Time
 }
 
-// TODO: totalWeight and further params aren't handled now
-func NewOrder(User *User, Products *[]Product, quantity []uint16, prices []float32) *Order {
-	return &Order{uuid.New(), User, Products, quantity, prices, 0, 0, 0, 0, 0, "", 0, 0, time.Now()}
+// TODO: shippingPrice and further params aren't handled now
+func NewOrder(User *User, Products *[]Product, quantity []uint16, prices []float32, totalWeight, totalVolume float32, totalSum float64) *Order {
+	return &Order{uuid.New(), User, Products, quantity, prices, totalWeight, totalVolume, totalSum, 0, 0, "", 0, 0, time.Now()}
 }
+
+// TODO: order editing and removing
