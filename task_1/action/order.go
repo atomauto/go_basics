@@ -29,5 +29,5 @@ func (a *NewOrderAction) Update() string {
 
 func (a *UpdateOrderAction) Update(o *model.Order) string {
 	o.Update(a.User, a.Products, a.quantity, a.prices)
-	return "Changed Order with ID " + u.Id.String()
+	return "Changed Order with ID " + o.Id.String()
 }
