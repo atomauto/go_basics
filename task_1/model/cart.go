@@ -8,7 +8,7 @@ import (
 )
 
 type Cart struct {
-	id   uuid.UUID
+	Id   uuid.UUID
 	User *User
 
 	Products *[]Product

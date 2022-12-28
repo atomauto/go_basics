@@ -8,9 +8,9 @@ import (
 
 // TODO: add fake discounts system to products
 type Product struct {
-	id uuid.UUID
+	Id uuid.UUID
 
-	name            string
+	Name            string
 	baseRetailPrice float32
 	minimumPrice    float32
 
@@ -32,7 +32,7 @@ func New(name string, baseRetailPrice, minimumPrice float32, minimumQuantity uin
 }
 
 func (p *Product) Update(name string, baseRetailPrice, minimumPrice float32, minimumQuantity uint16, multiplicity uint8, weight, volume float32) {
-	p.name = name
+	p.Name = name
 	p.baseRetailPrice = baseRetailPrice
 	p.minimumPrice = minimumPrice
 	p.minimumQuantity = minimumQuantity

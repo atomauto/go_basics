@@ -8,17 +8,17 @@ import (
 
 // TODO: we should replace discount with bonus systems with levels (adding some gamification would be nice)
 type User struct {
-	id      uuid.UUID
-	name    string
-	phone   string
-	email   string
-	address string
+	Id      uuid.UUID
+	Name    string
+	Phone   string
+	Email   string
+	Address string
 
-	comment       string
-	discount      int8
-	purchaseTotal float64
+	Comment       string
+	Discount      int8
+	PurchaseTotal float64
 
-	created time.Time
+	Created time.Time
 }
 
 // func New(name, phone, email, address, comment string) *User {
@@ -30,11 +30,11 @@ func NewUser(name, phone, email, address, comment string) *User {
 }
 
 func (u *User) Update(name, phone, email, address, comment string) {
-	u.name = name
-	u.phone = phone
-	u.email = email
-	u.address = address
-	u.comment = comment
+	u.Name = name
+	u.Phone = phone
+	u.Email = email
+	u.Address = address
+	u.Comment = comment
 }
 
 func (u *User) Delete() {
@@ -42,5 +42,5 @@ func (u *User) Delete() {
 }
 
 func (u *User) AddPurchaseTotal(purchase float64) {
-	u.purchaseTotal += purchase
+	u.PurchaseTotal += purchase
 }

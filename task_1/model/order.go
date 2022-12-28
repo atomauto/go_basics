@@ -9,7 +9,7 @@ import (
 // TODO: implement better status support as struct, suggest colors
 // TODO: implement shipping calculation and limits of weight/volume according to delivery type
 type Order struct {
-	id   uuid.UUID
+	Id   uuid.UUID
 	User *User
 
 	Products *[]Product
