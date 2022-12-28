@@ -23,6 +23,11 @@ type Cart struct {
 	created time.Time
 }
 
+//Doesn't work, marked as duplicated
+func New(User *User) *Cart {
+	return &Cart{uuid.New(), User, nil, nil, nil, nil, 0, 0, 0, time.Now()}
+}
+
 func NewCart(User *User) *Cart {
 	return &Cart{uuid.New(), User, nil, nil, nil, nil, 0, 0, 0, time.Now()}
 }
