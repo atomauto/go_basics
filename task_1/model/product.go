@@ -27,7 +27,11 @@ func NewProduct(name string, baseRetailPrice, minimumPrice float32, minimumQuant
 	return &Product{uuid.New(), name, baseRetailPrice, minimumPrice, minimumQuantity, multiplicity, weight, volume, time.Now()}
 }
 
-func (p *Product) UpdateProduct(name string, baseRetailPrice, minimumPrice float32, minimumQuantity uint16, multiplicity uint8, weight, volume float32) {
+func New(name string, baseRetailPrice, minimumPrice float32, minimumQuantity uint16, multiplicity uint8, weight, volume float32) *Product {
+	return &Product{uuid.New(), name, baseRetailPrice, minimumPrice, minimumQuantity, multiplicity, weight, volume, time.Now()}
+}
+
+func (p *Product) Update(name string, baseRetailPrice, minimumPrice float32, minimumQuantity uint16, multiplicity uint8, weight, volume float32) {
 	p.name = name
 	p.baseRetailPrice = baseRetailPrice
 	p.minimumPrice = minimumPrice
@@ -37,7 +41,7 @@ func (p *Product) UpdateProduct(name string, baseRetailPrice, minimumPrice float
 	p.volume = volume
 }
 
-func (p *Product) RemoveProduct() {
-	//How to free memory
-	//and check all carts for having this product
+func (p *Product) Delete() {
+	p = nil
+	//We must check all carts for having this product
 }

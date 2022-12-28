@@ -34,7 +34,17 @@ type Order struct {
 
 // TODO: shippingPrice and further params aren't handled now
 func NewOrder(User *User, Products *[]Product, quantity []uint16, prices []float32, totalWeight, totalVolume float32, totalSum float64) *Order {
+	User.AddPurchaseTotal(totalSum)
 	return &Order{uuid.New(), User, Products, quantity, prices, totalWeight, totalVolume, totalSum, 0, 0, "", 0, 0, time.Now()}
 }
 
-// TODO: order editing and removing
+func (o *Order) Update(User *User, Products *[]Product, quantity []uint16, prices []float32) {
+	o.User = User
+	o.Products = Products
+	o.quantity = quantity
+	o.prices = prices
+}
+
+func (o *Order) Delete() {
+	o = nil
+}
