@@ -10,8 +10,5 @@ func main() {
 	wg.Add(1)
 	SolutionsServer := service.NewSolutionServer(&wg)
 	go SolutionsServer.Serve()
-	Api := service.NewApiServer(&wg)
-	wg.Add(1)
-	Api.GetTask()
 	wg.Wait()
 }

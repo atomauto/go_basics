@@ -7,20 +7,22 @@ import (
 )
 
 type SolutionServer struct {
-	handler *http.ServeMux
-	wg      *sync.WaitGroup
+	handler    *http.ServeMux
+	wg         *sync.WaitGroup
+	apiHandler *Api
 }
 
 func NewSolutionServer(wg *sync.WaitGroup) *SolutionServer {
-	return &SolutionServer{http.NewServeMux(), wg}
+	return &SolutionServer{http.NewServeMux(), wg, NewApiServer(wg)}
 }
 
-func (*SolutionServer) solveAllTasks(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "SOLVING ALL TASK")
+func (s *SolutionServer) solveAllTasks(w http.ResponseWriter, r *http.Request) {
+	s.apiHandler.CheckAllTasks()
 }
 
-func (*SolutionServer) solveTask(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "Solving Task")
+func (s *SolutionServer) solveTask(w http.ResponseWriter, r *http.Request) {
+	fmt.Println(r.RequestURI)
+	s.apiHandler.GetAndCheckTask(r.RequestURI)
 }
 
 func (s *SolutionServer) Serve() {
