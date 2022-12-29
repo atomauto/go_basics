@@ -9,9 +9,6 @@ func (*Task1) Solution(A []int) int {
 	sum := 0
 	for _, item := range A {
 		sum += item
-		if min == item || max == item {
-			return 0
-		}
 		if min > item {
 			min = item
 		}
